@@ -14,6 +14,7 @@ import { FollowingModule } from './following/following.module';
 import { ReposModule } from './repos/repos.module';
 import { WelcomeModule } from './welcome/welcome.module';
 import { UserProfileModule } from './user-profile/user-profile.module';
+import { GithubsearchService } from './shared/githubsearch/githubsearch.service';
 
 
 @NgModule({
@@ -23,8 +24,8 @@ import { UserProfileModule } from './user-profile/user-profile.module';
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,
-    useValue: '<%= APP_BASE %>'
-  }],
+    useValue: '<%= APP_BASE %>',
+  }, GithubsearchService],
   bootstrap: [AppComponent]
 
 })

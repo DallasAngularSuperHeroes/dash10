@@ -19,7 +19,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
     // this.route.parent.params.subscribe((params: Params) => {
     //   let userid = params['userid'];
-    //   this.welcome = this.githubsearchService.getWelcome(userid)
+      //this.welcome = this.githubsearchService.getWelcome(userid)
     // });
   }
 

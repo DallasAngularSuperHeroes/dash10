@@ -21,9 +21,9 @@ export class GithubsearchService {
   }
 
   initCache() {
-    this.http.get('./fallbackData.json').toPromise().then((response: Response) => {
-      GithubsearchService.cache = response.json();
-    });
+    // this.http.get('./fallbackData.json').toPromise().then((response: Response) => {
+    //   GithubsearchService.cache = response.json();
+    // });
   }
 
   getUserProfile(userid: string): Promise<any> {
