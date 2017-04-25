@@ -1,11 +1,24 @@
 import * as express from 'express';
 import * as redis from 'redis';
+import { MemberController } from '../controllers/memberController';
 
 let nameData = require('../data/name.list.json');
 
 export function members(app: express.Application) {
 
-  app.get('/api/version/', (req, res) => {
+  const memberController = new MemberController();
+
+  app.get('/api/members',  memberController.getAll);
+
+  app.get('/api/member/', function (req, res) {
+    memberController.get(req, res);
+  });
+
+  app.get('/api/version', function (req, res) {
+    res.jsonp('{"version": "2.0"}');
+  });
+
+  app.get('/api/version2', (req, res) => {
     res.send('{"version": "1.0"}');
   });
 

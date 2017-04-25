@@ -41,7 +41,8 @@
     "webdriver-start": "webdriver-manager start",
     "webdriver-update": "node_modules/protractor/bin/webdriver-manager update",
     "compodoc": "node_modules/.bin/compodoc -p src/client/tsconfig.json",
-    "serve.compodoc": "node_modules/.bin/compodoc -s"
+    "serve.compodoc": "node_modules/.bin/compodoc -s",
+    "server": "node app.server.dev.js"
   },
   "author": "Minko Gechev <mgechev>",
   "contributors": [

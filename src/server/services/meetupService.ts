@@ -9,7 +9,7 @@ export class MeetupService {
 
   protected meetupSigId = '';
   protected meetupSig = '';
-  protected filename = 'data/meetupMembers.json';
+  protected filename;
   protected meetupServer = {
     host: 'api.meetup.com',
     path: ''
@@ -20,6 +20,12 @@ export class MeetupService {
 
   protected members: Member[];
   protected membersById: Map<Member>;
+
+  constructor() {
+    const cwd = __dirname.split('/');
+    cwd.splice(-1,1,'data','meetupMembers.json');
+    this.filename = cwd.join('/');
+  }
 
   public meetupCbFactory = (cb) => {
     return (response) => {
@@ -61,29 +67,28 @@ export class MeetupService {
   }
 
   protected init = (cb) => {
-    var srv = this;
     if (!this.members) {
-      srv.fetchMembers(() => {
-        srv.membersById = {};
-        srv.members.forEach( (member) => {
-          srv.membersById[member.id] = member;
+      this.fetchMembers(() => {
+        this.membersById = {};
+        this.members.forEach( (member) => {
+          this.membersById[member.id] = member;
         });
-        cb(srv.members);
+        cb(this.members);
       });
     } else {
-      cb(srv.members);
+      cb(this.members);
     }
   }
 
   public getAllMembers = (cb) => {
-    exports.init(cb);
-    return this.members;
+    this.init( () => {
+      cb(this.members);
+    });
   }
 
   public getMemberById = (id, cb) => {
-    var srv = this;
     this.init( () => {
-      var member = srv.membersById[id];
+      const member = this.membersById[id];
       cb(member);
     });
 
