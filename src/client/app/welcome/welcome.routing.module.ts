@@ -6,7 +6,7 @@ import { WelcomeComponent }    from './welcome.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: '',
+      { path: 'welcome',
         component: WelcomeComponent },
     ])
   ],

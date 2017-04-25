@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { ReplaySubject } from 'rxjs';
+// import { ReplaySubject } from 'rxjs';
 import 'rxjs/add/operator/toPromise';
 import { Jsonp, URLSearchParams } from '@angular/http';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class GithubsearchService {
