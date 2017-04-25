@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { GithubsearchService } from '../shared/githubsearch.service';
+import { GithubsearchService } from '../shared/githubsearch/githubsearch.service';
 
 @Component({
   moduleId: module.id,
   selector: 'github-welcome',
-  templateUrl: 'welcome.component.html',
-  styleUrls: ['welcome.component.css']
+  templateUrl: './welcome.component.html',
+  styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
   userid: string;
@@ -24,6 +24,19 @@ export class WelcomeComponent implements OnInit {
   }
 
   onUserid() {
-    this.router.navigate(['/user', this.userid]);
+    if (this.userid) {
+      this.router.navigate(['/user', this.userid]);
+    }
   }
+
+  onKeyup(event: any) {
+    if (event && event.code === 'Enter')  {
+      this.onUserid();
+    }
+  }
+
+  hasData() {
+    return !!this.userid;
+  }
+
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { GithubsearchService } from '../shared/githubsearch.service';
+import { GithubsearchService } from '../shared/githubsearch/githubsearch.service';
 
 @Component({
   moduleId: module.id,
   selector: 'github-following',
-  templateUrl: 'following.component.html',
-  styleUrls: ['following.component.css']
+  templateUrl: './following.component.html',
+  styleUrls: ['./following.component.css']
 })
 export class FollowingComponent implements OnInit {
   following = {};

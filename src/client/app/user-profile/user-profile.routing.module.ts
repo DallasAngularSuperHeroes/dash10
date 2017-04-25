@@ -1,10 +1,11 @@
-import {NgModule}     from '@angular/core';
-import {RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {UserProfileComponent}    from './user-profile.component';
-import {ReposComponent} from "../repos/repos.component";
-import {FollowersComponent} from "../followers/followers.component";
-import {FollowingComponent} from "../following/following.component";
-import {UserPofileResolve} from "./user-profile.resolve";
+import { NgModule }     from '@angular/core';
+import { RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { UserProfileComponent }    from './user-profile.component';
+import { ReposComponent } from '../repos/repos.component';
+import { FollowersComponent } from '../followers/followers.component';
+import { FollowingComponent } from '../following/following.component';
+import { UserProfileGuards } from './user-profile.guards';
+import { UserProfile } from '../shared/githubsearch/userProfile';
 
 @NgModule({
   imports: [
@@ -15,12 +16,15 @@ import {UserPofileResolve} from "./user-profile.resolve";
         path: 'user/:userid',
         component: UserProfileComponent,
         resolve: {
-          userProfile: UserPofileResolve
+          userProfile: UserProfileGuards,
         },
+        canActivate: ['noAname'],
         children: [
           {
             path: '',
-            component: ReposComponent
+            component: ReposComponent,
+            // redirectTo: 'repos',
+            pathMatch: 'full'
           },
           {
             path: 'repos',
@@ -39,7 +43,14 @@ import {UserPofileResolve} from "./user-profile.resolve";
     ])
   ],
   providers: [
-    UserPofileResolve
+    UserProfileGuards,
+    {
+      provide: 'noAname',
+      useValue: (route: ActivatedRouteSnapshot): Promise<UserProfile> | boolean => {
+        console.log('No A route!');
+        return !route.params['userid'].startsWith('a');
+      }
+    },
   ],
   exports: [
     RouterModule

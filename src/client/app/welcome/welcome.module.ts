@@ -16,7 +16,7 @@ import { WelcomeRoutingModule } from './welcome.routing.module';
     WelcomeComponent
   ],
   providers: [
-    
+
   ]
 })
 export class WelcomeModule {}

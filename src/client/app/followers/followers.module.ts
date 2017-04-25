@@ -16,6 +16,7 @@ import { FollowersRoutingModule } from './followers.routing.module';
     FollowersComponent
   ],
   providers: [
+    
   ]
 })
 export class FollowersModule {}
