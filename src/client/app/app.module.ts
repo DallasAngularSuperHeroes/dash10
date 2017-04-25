@@ -9,10 +9,15 @@ import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { MembersModule } from './members/members.module';
+import { FollowersModule } from './followers/followers.module';
+import { FollowingModule } from './following/following.module';
+import { ReposModule } from './repos/repos.module';
+import { WelcomeModule } from './welcome/welcome.module';
 
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, AppRoutingModule, AboutModule, MembersModule, HomeModule, SharedModule.forRoot()],
+  imports: [BrowserModule, HttpModule, AppRoutingModule, AboutModule, MembersModule,
+    FollowersModule, FollowingModule, ReposModule, WelcomeModule, HomeModule, SharedModule.forRoot()],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,
