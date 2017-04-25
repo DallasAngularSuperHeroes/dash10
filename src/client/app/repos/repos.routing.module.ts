@@ -1,6 +1,5 @@
 import { NgModule }     from '@angular/core';
 import { RouterModule } from '@angular/router';
-
 import { ReposComponent }    from './repos.component';
 
 @NgModule({

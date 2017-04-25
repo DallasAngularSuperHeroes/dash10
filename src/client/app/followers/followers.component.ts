@@ -4,9 +4,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GithubsearchService } from '../shared/githubsearch.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'github-followers',
-  templateUrl: './followers.component.html',
-  styleUrls: ['./followers.component.css']
+  templateUrl: 'followers.component.html',
+  styleUrls: ['followers.component.css']
 })
 export class FollowersComponent implements OnInit {
   followers = {};

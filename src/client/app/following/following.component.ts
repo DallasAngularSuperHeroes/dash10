@@ -4,9 +4,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GithubsearchService } from '../shared/githubsearch.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'github-following',
-  templateUrl: './following.component.html',
-  styleUrls: ['./following.component.css']
+  templateUrl: 'following.component.html',
+  styleUrls: ['following.component.css']
 })
 export class FollowingComponent implements OnInit {
   following = {};
@@ -18,8 +19,8 @@ export class FollowingComponent implements OnInit {
   ngOnInit() {
     this.route.parent.params.subscribe((params: Params) => {
       let userid = params['userid'];
-      this.following = this.githubsearchService.getFollowing(userid)
+      this.following = this.githubsearchService.getFollowing(userid);
     });
-  }    
+  }
 
 }

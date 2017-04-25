@@ -4,9 +4,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GithubsearchService } from '../shared/githubsearch.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'github-repos',
-  templateUrl: './repos.component.html',
-  styleUrls: ['./repos.component.css']
+  templateUrl: 'repos.component.html',
+  styleUrls: ['repos.component.css']
 })
 export class ReposComponent implements OnInit {
   repos = {};
@@ -18,8 +19,8 @@ export class ReposComponent implements OnInit {
   ngOnInit() {
     this.route.parent.params.subscribe((params: Params) => {
       let userid = params['userid'];
-      this.repos = this.githubsearchService.getRepos(userid)
+      this.repos = this.githubsearchService.getRepos(userid);
     });
-  }    
+  }
 
 }

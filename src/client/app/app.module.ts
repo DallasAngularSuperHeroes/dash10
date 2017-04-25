@@ -14,7 +14,6 @@ import { FollowingModule } from './following/following.module';
 import { ReposModule } from './repos/repos.module';
 import { WelcomeModule } from './welcome/welcome.module';
 
-
 @NgModule({
   imports: [BrowserModule, HttpModule, AppRoutingModule, AboutModule, MembersModule,
     FollowersModule, FollowingModule, ReposModule, WelcomeModule, HomeModule, SharedModule.forRoot()],

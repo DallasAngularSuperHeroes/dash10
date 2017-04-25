@@ -4,9 +4,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GithubsearchService } from '../shared/githubsearch.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'github-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  templateUrl: 'welcome.component.html',
+  styleUrls: ['welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
   userid: string;
